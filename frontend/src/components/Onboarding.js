@@ -17,6 +17,9 @@ export default function Onboarding() {
   const [selectedFile, setSelectedFile] = useState(null)
   const [uploadProgress, setUploadProgress] = useState(0)
 
+    const currentYear = new Date().getFullYear();
+
+
   useEffect(() => {
     if (token) {
       fetchCandidateDetails()
@@ -368,11 +371,14 @@ export default function Onboarding() {
           </div>
         </div>
 
-        {/* Footer */}
-        <div className="page-footer-onb">
-          <p>© 2024 Zorvixe Technologies. All rights reserved.</p>
-          <p>For technical support, please contact our HR team.</p>
-        </div>
+        {/* Copyright */}
+      <div className="container copyright text-center mt-4">
+        <p>
+          <span>Copyright &copy; {currentYear}</span>
+          <strong className="px-1 sitename">ZORVIXE</strong>
+          <span>All Rights Reserved</span>
+        </p>
+      </div>
       </div>
     </div>
   )
