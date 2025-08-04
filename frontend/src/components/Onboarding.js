@@ -8,7 +8,7 @@ import "./Onboarding.css"
 const API_BASE_URL = "https://zorvixelocalbackend.onrender.com"
 
 export default function Onboarding() {
-  const { candidateName, token } = useParams()
+  const { token } = useParams()
   const [candidate, setCandidate] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState("")
@@ -17,8 +17,7 @@ export default function Onboarding() {
   const [selectedFile, setSelectedFile] = useState(null)
   const [uploadProgress, setUploadProgress] = useState(0)
 
-    const currentYear = new Date().getFullYear();
-
+  const currentYear = new Date().getFullYear()
 
   useEffect(() => {
     if (token) {
@@ -29,9 +28,11 @@ export default function Onboarding() {
   const fetchCandidateDetails = async () => {
     setLoading(true)
     setError("")
+
     try {
       const response = await fetch(`${API_BASE_URL}/api/candidate-details/${token}`)
       const data = await response.json()
+
       if (data.success) {
         setCandidate(data.candidate)
       } else {
@@ -58,11 +59,13 @@ export default function Onboarding() {
         setError("Please select a PDF file only")
         return
       }
+
       if (file.size > 50 * 1024 * 1024) {
         // 50MB limit
         setError("File size must be less than 50MB")
         return
       }
+
       setSelectedFile(file)
       setError("")
     }
@@ -207,6 +210,7 @@ export default function Onboarding() {
                   <p className="info-label-onb">Full Name</p>
                 </div>
               </div>
+
               <div className="info-item-onb">
                 <Mail className="info-icon-onb" />
                 <div className="info-details-onb">
@@ -214,6 +218,7 @@ export default function Onboarding() {
                   <p className="info-label-onb">Email Address</p>
                 </div>
               </div>
+
               <div className="info-item-onb">
                 <Phone className="info-icon-onb" />
                 <div className="info-details-onb">
@@ -221,6 +226,7 @@ export default function Onboarding() {
                   <p className="info-label-onb">Phone Number</p>
                 </div>
               </div>
+
               <div className="info-item-onb">
                 <Briefcase className="info-icon-onb" />
                 <div className="info-details-onb">
@@ -228,6 +234,7 @@ export default function Onboarding() {
                   <p className="info-label-onb">Position</p>
                 </div>
               </div>
+
               <div className="candidate-id-section-onb">
                 <div className="candidate-id-row-onb">
                   <span className="candidate-id-label-onb">Candidate ID:</span>
@@ -254,6 +261,7 @@ export default function Onboarding() {
                   <p className="success-description-onb">
                     Your documents have been successfully uploaded and are under review.
                   </p>
+
                   {candidate.uploadDetails && (
                     <div className="upload-details-onb">
                       <p className="upload-detail-onb">
@@ -277,6 +285,7 @@ export default function Onboarding() {
                       <p className="upload-subtitle-onb">Please combine all your certificates into a single PDF file</p>
                       <p className="upload-note-onb">Maximum file size: 50MB | Format: PDF only</p>
                     </div>
+
                     <div className="upload-button-container-onb">
                       <input
                         type="file"
@@ -372,13 +381,13 @@ export default function Onboarding() {
         </div>
 
         {/* Copyright */}
-      <div className="container copyright text-center mt-4">
-        <p>
-          <span>Copyright &copy; {currentYear}</span>
-          <strong className="px-1 sitename">ZORVIXE</strong>
-          <span>All Rights Reserved</span>
-        </p>
-      </div>
+        <div className="container copyright text-center mt-4">
+          <p>
+            <span>Copyright &copy; {currentYear}</span>
+            <strong className="px-1 sitename">ZORVIXE</strong>
+            <span>All Rights Reserved</span>
+          </p>
+        </div>
       </div>
     </div>
   )
