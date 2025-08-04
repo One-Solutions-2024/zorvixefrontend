@@ -160,6 +160,10 @@ export default function Onboarding() {
 
   return (
     <div className="onboarding-page-onb">
+       <div className="header">
+        <img src="/assets/img/zorvixe_logo.png" alt="Zorvixe Logo" className="logo_payment" />
+      </div>
+
       <div className="onboarding-content-onb">
         {/* Header */}
         <div className="page-header-onb">
