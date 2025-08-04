@@ -363,11 +363,16 @@ export default function Onboarding() {
               <div className="instructions-section-onb">
                 <h4 className="instructions-title-onb">Required Documents:</h4>
                 <ul className="instructions-list-onb">
-                  <li>• Educational certificates</li>
+                  <li>• Educational certificates 10th to Degree</li>
                   <li>• Professional certifications</li>
                   <li>• Experience certificates</li>
                   <li>• Identity proof</li>
                   <li>• Address proof</li>
+                  <li>• Signed Offer Letter</li>
+                  <li>• Government-issued ID proof (Aadhar/Passport/PAN) </li>
+                  <li>• Recent passport-sized photograph</li>
+                  <li>• Any other relevant documents</li>
+                  <li>• Bank account details for stipend processing</li>
                 </ul>
               </div>
               <div className="instructions-section-onb">
