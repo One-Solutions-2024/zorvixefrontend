@@ -1,6 +1,6 @@
 "use client"
 
-import { useState,useCallback, useEffect, useRef } from "react"
+import { useState, useCallback, useEffect, useRef } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import {
   Building2,
@@ -22,7 +22,6 @@ import "./payment.css"
 const Payment = () => {
   const { token } = useParams()
   const navigate = useNavigate()
-
   const [clientDetails, setClientDetails] = useState(null)
   const [loading, setLoading] = useState(true)
   const [file, setFile] = useState(null)
@@ -32,32 +31,28 @@ const Payment = () => {
   const [referenceId, setReferenceId] = useState("")
   const fileInputRef = useRef(null)
 
- 
- 
-const fetchClientDetails = useCallback(async () => {
-  try {
-    setLoading(true)
-    const response = await fetch(`https://zorvixelocalbackend.onrender.com/api/client-details/${token}`)
-    const data = await response.json()
-
-    if (response.ok && data.success) {
-      setClientDetails(data.client)
-    } else {
-      console.error("Failed to fetch client details:", data.message)
+  const fetchClientDetails = useCallback(async () => {
+    try {
+      setLoading(true)
+      const response = await fetch(`https://zorvixelocalbackend.onrender.com/api/client-details/${token}`)
+      const data = await response.json()
+      if (response.ok && data.success) {
+        setClientDetails(data.client)
+      } else {
+        console.error("Failed to fetch client details:", data.message)
+        setClientDetails(null)
+      }
+    } catch (error) {
+      console.error("Error fetching client details:", error)
       setClientDetails(null)
+    } finally {
+      setLoading(false)
     }
-  } catch (error) {
-    console.error("Error fetching client details:", error)
-    setClientDetails(null)
-  } finally {
-    setLoading(false)
-  }
-}, [token]) // token is a dependency of fetchClientDetails
+  }, [token])
 
-useEffect(() => {
-  fetchClientDetails()
-}, [fetchClientDetails]) // now ESLint is happy
-
+  useEffect(() => {
+    fetchClientDetails()
+  }, [fetchClientDetails])
 
   // Loading state
   if (loading) {
@@ -441,9 +436,11 @@ useEffect(() => {
                 </div>
               </div>
             </div>
+
             <div className="payment-divider">
               <span>OR</span>
             </div>
+
             <div className="payment-option">
               <div className="option-header">
                 <div className="option-icon qr-icon">

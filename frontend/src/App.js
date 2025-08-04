@@ -1,42 +1,42 @@
-import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom"
 
 // Import your components
-import Contact from './components/contact_us';
-import NotFound from './components/notfound';
-import MobileAppSolutions from './components/mobile_app_solutions';
-import Footer from './components/footer';
-import DigitalMarketingService from './components/digitalmarketing';
-import Header from './components/header';
-import TermsAndConditions from './components/terms_conditions';
-import PrivacyPage from './components/privacy_policy';
-import Home from './components/home';
-import AboutUs from './components/about_us';
-import MaintenancePage from './components/maintainance';
-import SEOServicePage from './components/seo';
-import UIUX from './components/ui_ux';
-import WebHosting from './components/webhosting';
-import WebDevelopment from './components/webdevelopment';
-import Maintenance from './components/maintainance';
-import Payment from './components/payment';
-import Onboarding from './components/Onboarding';
-import './App.css';
+import Contact from "./components/contact_us"
+import NotFound from "./components/notfound"
+import MobileAppSolutions from "./components/mobile_app_solutions"
+import Footer from "./components/footer"
+import DigitalMarketingService from "./components/digitalmarketing"
+import Header from "./components/header"
+import TermsAndConditions from "./components/terms_conditions"
+import PrivacyPage from "./components/privacy_policy"
+import Home from "./components/home"
+import AboutUs from "./components/about_us"
+import MaintenancePage from "./components/maintainance"
+import SEOServicePage from "./components/seo"
+import UIUX from "./components/ui_ux"
+import WebHosting from "./components/webhosting"
+import WebDevelopment from "./components/webdevelopment"
+import Maintenance from "./components/maintainance"
+import Payment from "./components/payment"
+import Onboarding from "./components/Onboarding"
+import "./App.css"
 
 function App() {
   // Layout with header and footer
   const MainLayout = () => (
     <div className="App">
       <Header />
-      <Outlet />  {/* Renders the matched child route */}
+      <Outlet /> {/* Renders the matched child route */}
       <Footer />
     </div>
-  );
+  )
 
   // Layout without header and footer
   const MinimalLayout = () => (
     <div className="App">
-      <Outlet />  {/* Renders the matched child route */}
+      <Outlet /> {/* Renders the matched child route */}
     </div>
-  );
+  )
 
   return (
     <BrowserRouter>
@@ -58,19 +58,17 @@ function App() {
           <Route path="/maintainance" element={<Maintenance />} />
         </Route>
 
-        {/* Routes without header/footer */}
+        {/* Routes without header/footer - FIXED ROUTES */}
         <Route element={<MinimalLayout />}>
-          <Route
-            path="/payment/:clientNameForUrl/:token" element={<Payment />}/>
-          <Route
-            path="/onboarding/:candidateNameForUrl/:token" element={<Onboarding />}/>
-            </Route>
+          <Route path="/payment/:token" element={<Payment />} />
+          <Route path="/onboarding/:token" element={<Onboarding />} />
+        </Route>
 
         {/* Standalone route without layout */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
-  );
+  )
 }
 
-export default App;
+export default App
