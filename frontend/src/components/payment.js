@@ -183,11 +183,11 @@ const Payment = () => {
         setReferenceId(data.referenceId)
         setIsSubmitted(true)
       } else {
-        throw new Error(data.message || "Failed to submit payment registration")
+        throw new Error(data.message || "Failed to submit payment Payment")
       }
     } catch (error) {
       console.error("Error submitting payment:", error)
-      alert("Failed to submit payment registration. Please try again.")
+      alert("Failed to submit payment Payment. Please try again.")
     }
   }
 
@@ -200,15 +200,15 @@ const Payment = () => {
             <div className="success-icon">
               <Check size={48} />
             </div>
-            <h2>Registration Submitted Successfully!</h2>
-            <p>Your payment registration has been received and is being processed.</p>
+            <h2>Payment Submitted Successfully!</h2>
+            <p>Your payment Payment has been received and is being processed.</p>
             <div className="reference-info">
               <span>
                 Reference ID: <strong>{referenceId}</strong>
               </span>
             </div>
             <div className="client-summary">
-              <h4>Registration Details:</h4>
+              <h4>Payment Details:</h4>
               <div className="summary-grid">
                 <div>
                   <strong>Client:</strong> {clientDetails.clientName}
@@ -256,12 +256,12 @@ const Payment = () => {
         <div className="header-content">
           <Building2 size={32} className="header-icon" />
           <div>
-            <h1>Project Registration</h1>
-            <p>Complete your registration to begin your enterprise project</p>
+            <h1>Project Payment</h1>
+            <p>Complete your Payment to begin your enterprise project</p>
           </div>
         </div>
         <div className="status-badge">
-          <span>Registration Required</span>
+          <span>Payment Required</span>
         </div>
       </div>
 
@@ -270,7 +270,7 @@ const Payment = () => {
         <div className="card-header">
           <div className="card-title">
             <Building2 size={20} />
-            <span>Client Registration Details</span>
+            <span>Client Payment Details</span>
           </div>
           <div className="card-badge">Active</div>
         </div>
@@ -318,7 +318,7 @@ const Payment = () => {
               </div>
               <div className="detail-items">
                 <div className="detail-item-improved highlight">
-                  <div className="detail-label">Registration Fee</div>
+                  <div className="detail-label">Payment Fee</div>
                   <div className="detail-value amount-value">Rs. {clientDetails.amount?.toLocaleString()}</div>
                 </div>
                 <div className="detail-item-improved">
@@ -361,7 +361,7 @@ const Payment = () => {
               <div className="term-item">
                 <div className="term-number">01</div>
                 <div className="term-text">
-                  <strong>Payment Requirement:</strong> Project initiation requires full registration fee payment before
+                  <strong>Payment Requirement:</strong> Project initiation requires full Payment fee payment before
                   development begins.
                 </div>
               </div>
@@ -555,7 +555,7 @@ const Payment = () => {
         <div className="card-content">
           <div className="confirmation-content">
             <div className="confirmation-text">
-              <h3>Ready to Submit Registration</h3>
+              <h3>Ready to Submit Payment</h3>
               <p>
                 Your project coordinator will contact you within 24 hours of payment verification to begin your project
                 development process.
@@ -563,7 +563,7 @@ const Payment = () => {
             </div>
             <button className="submit-button" onClick={handleSubmit} disabled={!file || imageLoading}>
               <Check size={20} />
-              {imageLoading ? "Processing..." : "Submit Registration"}
+              {imageLoading ? "Processing..." : "Submit Payment"}
             </button>
           </div>
         </div>
